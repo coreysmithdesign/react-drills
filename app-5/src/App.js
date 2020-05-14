@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Cowabunga from "./Cowabunga";
+import Image from "./Image";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Cowabunga />
+      <Image
+        url={
+          "https://img1.looper.com/img/gallery/things-only-adults-notice-in-the-teenage-mutant-ninja-turtles-cartoon/intro-1519911106.jpg"
+        }
+      />
     </div>
   );
 }

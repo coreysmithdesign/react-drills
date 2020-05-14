@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      filterString: "",
+      cars: [
+        "Mystery Van",
+        "Elantra",
+        "Pinto",
+        "Smart",
+        "Hummer",
+        "Honda",
+        "Hyundai",
+      ],
+    };
+  }
+
+  filterEvent(filter) {
+    this.setState({
+      filterString: filter,
+    });
+  }
+
+  render() {
+    console.log(this.state);
+
+    let listOfCars = this.state.cars
+      .filter((car, index) => {
+        return car.includes(this.state.filterString);
+      })
+      .map((car, index) => {
+        return <h2 key={index}>{car}</h2>;
+      });
+
+    return (
+      <div className="App">
+        <input type="text" onChange={(e) => this.filterEvent(e.target.value)} />
+        {listOfCars}
+      </div>
+    );
+  }
 }
-
-export default App;
